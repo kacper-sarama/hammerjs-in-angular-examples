@@ -1,0 +1,43 @@
+<div style="padding: 50% 10%;">
+  <mat-card
+    class="example-card"
+    [@cardAnimator]="animationState"
+    (@cardAnimator.done)="resetAnimationState()"
+    (swipeleft)="startAnimation('slideOutLeft')"
+    (swiperight)="startAnimation('zoomOutRight')"
+    (swipeup)="startAnimation('rotateOutUpRight')"
+    (swipedown)="startAnimation('flipOutY')"
+  >
+    <mat-card-content>
+      <div style="text-align: center;">
+        <img
+          mat-card-image
+          src="https://angular.io/assets/images/logos/angular/angular.svg"
+          style="width: 100px;"
+        />
+      </div>
+      <div>
+        <p>
+          This app shows HAMMER JS library examples in action. Click on he
+          buttons and swipe card in each direction to see results.
+        </p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (tap)="startAnimation('wobble')">WOBBLE</button>
+      <button mat-raised-button color="primary" (tap)="startAnimation('swing')">
+        SWING
+      </button>
+
+      <h5>Custom Events</h5>
+      <button
+        appHammertime
+        mat-raised-button
+        color="accent"
+        (doubleTap)="startAnimation('jello')"
+      >
+        JELLO (doubleTap)
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
